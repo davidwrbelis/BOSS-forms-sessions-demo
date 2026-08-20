@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="card grid-container" >
+        <div>
+        <a href="{{ url_for('home') }}" class="logout-btn">Home</a>
+        <a href="{{ url_for('logout') }}" class="logout-btn">Log Out</a>
+        <h2>Welcome {{ current_user.username }} !</h2>
+        </div>
+        <div>
+        <img src="{{ url_for('static', filename='boss_resized.png') }}"/>
+        </div>
+    </div>
+
+
+    <div class="card grid-container3" >
+        <div class="form-group">
+        <fieldset>
+        <legend>Sales Information</legend>
+        <table>
+            <th></th>
+            <td>
+                {% for item in l_product_string %}
+                    <tr><h4>{{ item['output_str'] }}</h4></tr>
+                {% endfor %}
+                    <tr><h4>Total units  - {{ p_total_units }}</h4></tr>
+                    <tr><h4>Grand total of ${{ p_total_price }}.00</h4></tr>
+            </td>
+        </table>
+        </fieldset>
+        </div>
+         <form id="total" action="{{ url_for('cart') }}" method="POST">
+        <fieldset>
+        <legend>Customer Information</legend>
+
+        <!-- Full Name Field -->
+        <div class="form-group">
+          <label for="customer-name">Full Name:</label>
+          <input type="text" id="customer-name" name="customerName" required placeholder="John Doe">
+        </div>
+
+        <!-- Street Address Field -->
+        <div class="form-group">
+          <label for="street-address">Street Address:</label>
+          <input type="text" id="street-address" name="streetAddress" required placeholder="123 Main St">
+        </div>
+
+        <!-- City Field -->
+        <div class="form-group">
+          <label for="city">City:</label>
+          <input type="text" id="city" name="city" required placeholder="Peoria">
+        </div>
+
+        <!-- State Field -->
+        <div class="form-group">
+          <label for="state">State:</label>
+          <input type="text" id="state" name="state" required placeholder="AZ" maxlength="2">
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit Details</button>
+        </fieldset>
+        </form>
+        <div class="form-group">
+            {% if l_cart_submit[0] != 'empty' %}
+        <fieldset>
+                <legend>e-Recipt</legend>
+                <table>
+
+                    <tr><td>Customer: </td>
+                        <td>{{ l_cart_submit[0]['customerName'] }}</td>
+                    </tr>
+                    <tr><td>Address: </td>
+                        <td>{{ l_cart_submit[0]['streetAddress'] }}</td>
+                    </tr>
+                    <tr><td>City: </td>
+                        <td>{{ l_cart_submit[0]['city'] }}</td>
+                    </tr>
+                    <tr><td>State: </td>
+                        <td>{{ l_cart_submit[0]['state'] }}</td>
+                    </tr>
+                    <tr><td>Total units: </td>
+                        <td>{{ p_total_units }}</td>
+                    </tr>
+                    <tr><td>Grand total: </td>
+                        <td>${{ p_total_price }}.00</td>
+                     </tr>
+                </table>
+                <p> </p>
+                <p>Thanks for ordering!!</p>
+        </fieldset>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card grid-container" >
+    <div>
+        <a href="{{ url_for('cart') }}"   class="logout-btn">Cart</a>
+        <a href="{{ url_for('logout') }}" class="logout-btn">Log Out</a>
+        <h2>Welcome {{ current_user.username }} !</h2>
+    </div>
+    <div>
+         <img src="{{ url_for('static', filename='boss_resized.png') }}"/>
+    </div>
+
+</div>
+
+<div class="card grid-container" >
+    <img src="{{ url_for('static', filename='delay-dm2w.png') }}"/>
+    <p>Now, the Legendary Analog Delay Is Back With a Modern Edge
+       Ever since being discontinued way back in 1984, the BOSS DM-2 Delay pedal has
+        remained highly sought after by players everywhere for its warm,
+        “bucket brigade” analog delay tone. Now, the DM is back! With the Waza Craft
+        DM-2W, the coveted stomp has been reborn with switchable sound modes and
+        greater versatility for today’s music styles.
+    </p>
+    <div>
+        <p>$129.00</p>
+
+        <form action="{{ url_for('home') }}" method="POST">
+           <label for="dm2w">Quantity:</label>
+            <select name="dm2w" id="dm2w">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+        <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div>
+        {% if dm2w2 != 0 %}
+        DM-2 Delay pedal ${{ dm2w1 }}.00  | {{dm2w2}} units
+        {% endif %}
+
+    </div>
+</div>
+
+
+<div class="card grid-container" >
+   <img src="{{ url_for('static', filename='Terra-echo.png') }}"/>
+    <p>Make Your Playing Soar with Majestic Ambience
+        Powered by Multi-Dimensional Processing technology (MDP), the TE-2 Tera Echo produces
+        a dynamic new stereo ambience effect that goes far beyond traditional
+        delay and reverb. </p>
+    <div>
+        <p>$189.00</p>
+
+        <form action="{{ url_for('home') }}" method="POST">
+        <label for="te2">Quantity:</label>
+        <input type="number" id="te2" name="te2" value="1" min="0" max="100" step="1">
+
+        <button type="submit">Submit</button>
+
+        </form>
+    </div>
+    <div>
+        {% if te2_2 != 0 %}
+        TE-2 Delay pedal ${{ te2 }}.00  | {{te2_2}} units
+        {% endif %}
+
+    </div>
+</div>
+
+<div class="card grid-container" >
+   <img src="{{ url_for('static', filename='space-echo.png') }}"/>
+   <p>The Authentic Space Echo Experience in a Compact Pedal
+       Introduced in 1974 and produced for over 14 years,
+       the Roland RE-201 Space Echo stands among the most legendary and sought-after
+       effect units in music history. Known for its distinctive rhythmic echo sounds,
+       warm character, and highly playable sonic quirks, this tape-based classic
+       continues to inspire musicians, producers, and audio mixers over four decades on.
+       With the RE-2, the authentic sound and behavior of the Space Echo is now
+       available in the famous BOSS compact series for the first time. .
+    </p>
+    <div>
+        <p>$179.00</p>
+
+        <form action="{{ url_for('home') }}" method="POST">
+        <label for="re2">Quantity:</label>
+        <input type="number" id="re2" name="re2" value="1" min="0" max="100" step="1">
+
+        <button type="submit">Submit</button>
+
+        </form>
+    </div>
+    <div>
+        {% if re2_2 != 0 %}
+        RE-2 Delay pedal ${{ re2 }}.00  | {{re2_2}} units
+        {% endif %}
+
+    </div>
+</div>
+
+<div class="card grid-container" >
+   <img src="{{ url_for('static', filename='DD-8.png') }}"/>
+    <p>Diverse Sonic Range, Maximum Delay Power
+       Introducing the DD-8, the most wide-ranging and feature-rich BOSS compact
+        series delay ever. This loaded pedal delivers more of everything—more
+        great sounds, more delay time, more control options, and more connectivity.
+        And it does it all in a standard BOSS pedal that slides easily into any
+        mono or stereo setup.
+    </p>
+    <div>
+        <p>$139.00</p>
+
+        <form action="{{ url_for('home') }}" method="POST">
+        <label for="dd8">Quantity:</label>
+        <input type="number" id="dd8" name="dd8" value="1" min="0" max="100" step="1">
+
+        <button type="submit">Submit</button>
+    </div>
+    <div>
+        {% if dd8_2 != 0 %}
+        DD-8 Delay pedal ${{ dd8 }}.00  | {{dd8_2}} units
+        {% endif %}
+
+    </div>
+</div>
+
+<form action="/submit-customer-info" method="POST">
+
+{% endblock %}

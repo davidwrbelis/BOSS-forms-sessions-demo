@@ -1,0 +1,118 @@
+body { font-family: Arial, sans-serif; margin: 20px; background-color: #D1E3E2; 
+}
+
+.h2, h3 { color: #333;
+}   
+
+.card { background: white; padding: 10px; border-radius: 20px; margin-bottom: 20px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+}  
+  
+.card2 { background: white; padding: 3px; border-radius: 20px; margin-bottom: 20px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+}
+
+.image-container { display: flex; gap: 15px; justify-content: left;
+}
+
+.grid-container {display: grid; gap: 15px;
+                     grid-template-columns: 1fr 1fr 1fr 1fr; /* Splits space into two equal columns */
+}
+
+.grid-container3 {display: grid; gap: 15px;
+                     grid-template-columns: 1fr 1fr 1fr; /* Splits space into two equal columns */
+}
+
+.button-link {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+}
+
+.logout-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #dc3545; /* Red alert color */
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.logout-btn:hover {
+    background-color: #bd2130; /* Darker red on hover */
+}
+
+/* Base container style for the form */
+form {
+  max-width: 500px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+/* Fieldset box layout */
+fieldset {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+/* Legend title styling */
+legend {
+  font-weight: bold;
+  padding: 0 10px;
+  color: #333;
+}
+
+/* Spacing and Flexbox layout for each field group */
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Text label styling */
+label {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #555;
+  font-weight: 600;
+}
+
+/* Input fields layout and focus effects */
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+/* Modern action button styling */
+button[type="submit"] {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  transition: background-color 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
