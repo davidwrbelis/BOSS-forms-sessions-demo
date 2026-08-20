@@ -2,7 +2,6 @@ from flask               import Flask, session, render_template, request, redire
 
 import sqlite3
 from flask_sqlalchemy    import SQLAlchemy
-from flask_migrate       import Migrate
 
 from flask_login         import LoginManager, login_user, logout_user, login_required, current_user
 from werkzeug.security   import generate_password_hash, check_password_hash
@@ -16,7 +15,7 @@ app.config['SECRET_KEY'] = 'my_secret_key'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'
 
 db.init_app(app) #db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+#migrate = Migrate(app, db)
 
 BASE_DIR = Path(__file__).resolve().parent
 # Direct path to the database file
